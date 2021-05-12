@@ -1,0 +1,37 @@
+{% extends "base.html" %} {% block head %}
+<title>Team</title>
+{% endblock %} {% block body %}
+<div class="title">
+  <div class="title-wrapper">
+    <img
+      src="{{url_for('static',filename='Assets/Heading/web1.svg')}}"
+      alt=""
+    />
+    <div class="tite-text">
+      <h1>Team</h1>
+      <h4>Details of students who have developed this project</h4>
+    </div>
+  </div>
+  <div class="line"></div>
+</div>
+<div class="team-page container d-flex flex-row">
+  <div class="card shadow" style="width: 18rem; margin-right: 5rem">
+    <img class="card-img-bottom"
+    src="{{url_for('static',filename='Assets/Team/divya.jpg')}}"" alt="Card
+    image cap" />
+    <div class="card-body">
+      <h5 class="card-title">Divya</h5>
+      <p class="card-text">CSE 6A, 1MS18CS043</p>
+    </div>
+  </div>
+  <div class="card shadow" style="width: 18rem">
+    <div class="card-body">
+      <h5 class="card-title">Gaurav V</h5>
+      <p class="card-text">CSE 6A, 1MS18CS046</p>
+    </div>
+    <img class="card-img-bottom"
+    src="{{url_for('static',filename='Assets/Team/gaurav.jpg')}}"" alt="Card
+    image cap" />
+  </div>
+</div>
+{% endblock%}

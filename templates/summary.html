@@ -1,0 +1,18 @@
+{% extends "base.html" %} {% block head %}
+<title>Team</title>
+{% endblock %} {% block body %}
+<div class="title">
+  <div class="title-wrapper">
+    <img
+      src="{{url_for('static',filename='Assets/Index/document.svg')}}"
+      alt=""
+    />
+    <div class="tite-text">
+      <h1>Summarization</h1>
+      <h4>Get a gist of the patient's report</h4>
+    </div>
+  </div>
+  <div class="line"></div>
+</div>
+<div class="reports-page container"></div>
+{% endblock%}
