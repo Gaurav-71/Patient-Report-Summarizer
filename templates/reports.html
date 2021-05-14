@@ -13,6 +13,34 @@
     </div>
   </div>
   <div class="line"></div>
+  <div class="all-files" style="margin-top: 2rem">
+    <table class="table table-striped table-bordered table-hover text-center">
+      <thead class="thead-dark" style="background: #1497a8; color: white">
+        <tr>
+          <th scope="col">Patient Name</th>
+          <th scope="col">Report Date</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for file in files %}
+        <tr>
+          <td>{{file.name}}</td>
+          <td>{{file.date}}</td>
+          <td>
+            <a
+              href="/view/{{file.name}}"
+              type="button"
+              class="btn"
+              style="background: #1497a8; color: white"
+              >View</a
+            >
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
 </div>
 <div class="reports-page container"></div>
 {% endblock%}

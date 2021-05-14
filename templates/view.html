@@ -1,0 +1,23 @@
+{% extends "base.html" %} {% block head %}
+<title>Report View</title>
+{% endblock %} {% block body %}
+<div class="title">
+  <div class="title-wrapper">
+    <img
+      src="{{url_for('static',filename='Assets/Index/medical-report.svg')}}"
+      alt=""
+    />
+    <div class="tite-text">
+      <h1>Report</h1>
+      <h4>The complete report of patient : <b>{{patient}}</b></h4>
+    </div>
+  </div>
+  <div class="line"></div>
+  <div class="single-summary">
+    {% for line in report %}
+    <p style="color: black; margin-top: 2rem">{{line}}</p>
+    {% endfor %}
+  </div>
+</div>
+<div class="reports-page container"></div>
+{% endblock%}

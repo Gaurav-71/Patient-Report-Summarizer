@@ -338,4 +338,7 @@ def summarisefile(filename):
     return summaryArr
 
 
-summarisefile('Chadwick Boseman')
+def filecontent(filename):
+    path = "./static/Data/" + filename + ".txt"
+    content = open(path).readlines()
+    return content
