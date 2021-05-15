@@ -2,6 +2,12 @@ import os
 import datetime
 
 files = os.listdir("./static/Data")
+
+try:
+    files.remove('.DS_Store')
+except:
+    pass
+
 Dict = {
     'Navarro Del Rio': datetime.datetime(1996, 3, 13),
     'Jesse Pinkman': datetime.datetime(2000, 4, 20),
@@ -33,5 +39,3 @@ def addValues(key, value):
 
 [addValues(key, value)
  for (key, value) in sorted(Dict.items(),  key=lambda x: x[1])]
-
-print(datesDict)
