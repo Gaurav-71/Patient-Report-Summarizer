@@ -81,6 +81,10 @@ body {
   font-size: medium;
 }
 
+.index-page {
+  margin-top: 0.5rem;
+}
+
 .index-page .card {
   text-decoration: none;
   background: #1497a8;
@@ -130,5 +134,33 @@ body {
 .team-page .card .card-title {
   color: orange;
   font-weight: bold;
+}
+
+.search-form {
+  margin: 2rem 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.search-form input {
+  outline: none;
+  padding: 0.8rem;
+}
+
+.search-form .patient {
+  -ms-flex-preferred-size: 70%;
+      flex-basis: 70%;
+}
+
+.search-form .date {
+  -ms-flex-preferred-size: 15%;
+      flex-basis: 15%;
 }
 /*# sourceMappingURL=main.css.map */

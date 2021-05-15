@@ -182,6 +182,7 @@ body {
 }
 
 .index-page {
+  margin-top: 0.5rem;
   .card {
     text-decoration: none;
     background: #1497a8;
@@ -219,5 +220,22 @@ body {
       color: orange;
       font-weight: bold;
     }
+  }
+}
+
+.search-form {
+  margin: 2rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  input {
+    outline: none;
+    padding: 0.8rem;
+  }
+  .patient {
+    flex-basis: 70%;
+  }
+  .date {
+    flex-basis: 15%;
   }
 }

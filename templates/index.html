@@ -18,37 +18,39 @@
   <div class="line"></div>
 </div>
 <div class="index-page container d-flex flex-row justify-content-around">
-  <a href="/reports" class="card" style="width: 20rem">
+  <a href="/about" class="card" style="width: 20rem">
     <img
       class="card-img-top p-5"
-      src="{{url_for('static',filename='Assets/Index/medical-report.svg')}}"
+      src="{{url_for('static',filename='Assets/About/information.svg')}}"
       alt="Card image cap"
     />
     <div class="card-body">
-      <h5 class="card-title">View Reports</h5>
-      <p class="card-text">Take a look at all reports sorted by date</p>
+      <h5 class="card-title">About</h5>
+      <p class="card-text">Get a quick description about the project</p>
     </div>
   </a>
   <a href="/summarization" class="card" style="width: 20rem">
-    <img
-      class="card-img-top p-5"
-      src="{{url_for('static',filename='Assets/Index/document.svg')}}"
-      alt="Card image cap"
-    />
-    <div class="card-body">
-      <h5 class="card-title">Summarization</h5>
-      <p class="card-text">Get a gist of the patient's report</p>
-    </div>
-  </a>
-  <a href="/symptoms" class="card" style="width: 20rem">
     <img
       class="card-img-top p-5"
       src="{{url_for('static',filename='Assets/Index/archive.svg')}}"
       alt="Card image cap"
     />
     <div class="card-body">
-      <h5 class="card-title">Search Symptoms</h5>
-      <p class="card-text">View patients with a particular symptom</p>
+      <h5 class="card-title">Search & Summarise</h5>
+      <p class="card-text">
+        Get a gist of a patients report or search for a particular symptom
+      </p>
+    </div>
+  </a>
+  <a href="/team" class="card" style="width: 20rem">
+    <img
+      class="card-img-top p-5"
+      src="{{url_for('static',filename='Assets/Heading/web1.svg')}}"
+      alt="Card image cap"
+    />
+    <div class="card-body">
+      <h5 class="card-title">Team</h5>
+      <p class="card-text">View the details of the team behind this project</p>
     </div>
   </a>
 </div>

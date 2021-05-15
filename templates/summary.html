@@ -4,16 +4,35 @@
 <div class="title">
   <div class="title-wrapper">
     <img
-      src="{{url_for('static',filename='Assets/Index/document.svg')}}"
+      src="{{url_for('static',filename='Assets/Index/archive.svg')}}"
       alt=""
     />
     <div class="tite-text">
-      <h1>Summarization</h1>
-      <h4>Get a gist of the patient's report</h4>
+      <h1>Search & Summarise</h1>
+      <h4>
+        Get a gist of the patient's report or easily find a patient with a
+        particular symptom
+      </h4>
     </div>
   </div>
   <div class="line"></div>
-  <div class="all-files" style="margin-top: 2rem">
+  <form class="search-form" action="">
+    <input placeholder="Patient Name" class="patient" type="search" />
+    <input
+      placeholder="Start Date"
+      class="date"
+      type="text"
+      style="margin: 0 1rem"
+      onfocus="(this.type='date')"
+    />
+    <input
+      placeholder="End Date"
+      class="date"
+      type="text"
+      onfocus="(this.type='date')"
+    />
+  </form>
+  <div class="all-files">
     <table class="table table-striped table-bordered table-hover text-center">
       <thead class="thead-dark" style="background: #1497a8; color: white">
         <tr>
