@@ -21,7 +21,7 @@ def search(query):
         if (rank != 0.0) :
             fileName = dates.files[docIndex]
             fileName = fileName.split(".txt")[0]
-            res [fileName] = dates.Dict[fileName].date()
+            res [fileName] = dates.Dict[fileName]
 
     print_files(res)
     return res

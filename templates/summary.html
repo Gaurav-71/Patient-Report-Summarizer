@@ -16,20 +16,49 @@
     </div>
   </div>
   <div class="line"></div>
-  <form class="search-form" action="">
-    <input placeholder="Patient Name" class="patient" type="search" />
+  <form class="search-form" action="/summarization" method="POST">
+    <input
+      placeholder="Search"
+      value="{{query}}"
+      class="patient"
+      type="search"
+      name="search"
+      id="search"
+    />
     <input
       placeholder="Start Date"
+      name="start"
+      id="start"
       class="date"
       type="text"
+      value="{{start}}"
       style="margin: 0 1rem"
       onfocus="(this.type='date')"
     />
     <input
       placeholder="End Date"
+      name="end"
+      id="end"
       class="date"
       type="text"
+      value="{{end}}"
       onfocus="(this.type='date')"
+    />
+    <input
+      type="submit"
+      value="Submit"
+      name="Submit"
+      id="Submit"
+      class="submit shadow-sm"
+      onclick="this.form.submitted=this.value;"
+    />
+    <input
+      type="submit"
+      value="Reset"
+      name="Reset"
+      id="Reset"
+      class="reset shadow-sm"
+      onclick="this.form.submitted=this.value;"
     />
   </form>
   <div class="all-files">

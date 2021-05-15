@@ -14,9 +14,11 @@
   </div>
   <div class="line"></div>
   <div class="single-summary">
-    {% for line in summary %}
-    <p style="color: black; margin-top: 2rem">{{line}}</p>
-    {% endfor %}
+    <ul>
+      {% for line in summary %}
+      <li style="color: black; margin-top: 2rem">{{line}}</li>
+      {% endfor %}
+    </ul>
   </div>
 </div>
 <div class="reports-page container"></div>

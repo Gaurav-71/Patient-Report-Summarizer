@@ -155,12 +155,26 @@ body {
 }
 
 .search-form .patient {
-  -ms-flex-preferred-size: 70%;
-      flex-basis: 70%;
+  -ms-flex-preferred-size: 60%;
+      flex-basis: 60%;
 }
 
 .search-form .date {
-  -ms-flex-preferred-size: 15%;
-      flex-basis: 15%;
+  -ms-flex-preferred-size: 12.5%;
+      flex-basis: 12.5%;
+}
+
+.search-form .submit,
+.search-form .reset {
+  margin-left: 1rem;
+  -ms-flex-preferred-size: 7.5%;
+      flex-basis: 7.5%;
+  background: #1497a8;
+  color: white;
+  border: none;
+}
+
+.search-form .reset {
+  background: orange;
 }
 /*# sourceMappingURL=main.css.map */

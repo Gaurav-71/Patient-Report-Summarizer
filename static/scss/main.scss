@@ -233,9 +233,20 @@ body {
     padding: 0.8rem;
   }
   .patient {
-    flex-basis: 70%;
+    flex-basis: 60%;
   }
   .date {
-    flex-basis: 15%;
+    flex-basis: 12.5%;
+  }
+  .submit,
+  .reset {
+    margin-left: 1rem;
+    flex-basis: 7.5%;
+    background: #1497a8;
+    color: white;
+    border: none;
+  }
+  .reset {
+    background: orange;
   }
 }

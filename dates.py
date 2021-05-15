@@ -1,3 +1,4 @@
+from datetime import timedelta, date
 import os
 import datetime
 
@@ -39,3 +40,14 @@ def addValues(key, value):
 
 [addValues(key, value)
  for (key, value) in sorted(Dict.items(),  key=lambda x: x[1])]
+
+
+def betweenStartandEnd(queryDict, start, end):
+    in_between_dates = {}
+    if end < start:
+        return in_between_dates
+    else:
+        for key in queryDict:
+            if queryDict[key] >= start and queryDict[key] <= end:
+                in_between_dates[key] = queryDict[key]
+        return in_between_dates

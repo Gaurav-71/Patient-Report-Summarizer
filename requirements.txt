@@ -13,3 +13,4 @@ scipy
 numpy
 pattern3
 sklearn
+pandas

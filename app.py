@@ -1,3 +1,4 @@
+import datetime
 from flask import Flask, render_template, request, redirect
 import os
 
@@ -5,6 +6,7 @@ from nltk.util import pr
 
 import summarizer
 import dates
+import searchString
 
 app = Flask(__name__)
 
@@ -17,7 +19,6 @@ class Patient:
 
 files = []
 for patient in dates.datesDict:
-    
     files.append(Patient(patient, dates.datesDict[patient]))
 
 
@@ -49,9 +50,57 @@ def view(id):
     return render_template('view.html', patient=id, report=report)
 
 
-@app.route('/summarization')
+@app.route('/summarization', methods=['POST', 'GET'])
 def summarization():
-    return render_template('summary.html', files=files)
+    if request.method == 'POST':
+        print('in post')
+        query = request.form['search']
+        start = request.form['start']
+        end = request.form['end']
+        submit = None
+        reset = None
+        flag = False
+        try:
+            submit = request.form['Submit']
+            flag = True
+        except:
+            print('submit unrecognized')
+        try:
+            reset = request.form['Reset']
+            flag = False
+        except:
+            print('reset unrecognized')
+        result = {}
+        print("-----------", start, end, type(start))
+        if flag:
+            if query == '':
+                result = dates.datesDict
+            else:
+                result = searchString.search(query)
+
+            if start == '' and end == '':
+                pass
+            elif start == '' and end != '':
+                values = [int(x) for x in end.split('-')]
+                result = dates.betweenStartandEnd(result, datetime.datetime(
+                    1990, 1, 1), datetime.datetime(values[0], values[1], values[2]))
+            elif start != '' and end == '':
+                values = [int(x) for x in start.split('-')]
+                result = dates.betweenStartandEnd(result, datetime.datetime(
+                    values[0], values[1], values[2]), datetime.datetime(2025, 1, 1))
+            else:
+                startValues = [int(x) for x in start.split('-')]
+                endValues = [int(x) for x in end.split('-')]
+                result = dates.betweenStartandEnd(result, datetime.datetime(
+                    startValues[0], startValues[1], startValues[2]), datetime.datetime(endValues[0], endValues[1], endValues[2]),)
+            queryResults = []
+            for patient in result:
+                queryResults.append(Patient(patient, dates.datesDict[patient]))
+            return render_template('summary.html', files=queryResults, query=query, start=start, end=end)
+        else:
+            return render_template('summary.html', files=files, query='', start='', end='')
+    else:
+        return render_template('summary.html', files=files, query='', start='', end='')
 
 
 @app.route('/summarize/<string:id>')

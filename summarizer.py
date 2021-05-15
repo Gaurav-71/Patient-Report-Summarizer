@@ -332,7 +332,7 @@ def summarisefile(filename):
     print("Total Sentences:", len(normalized_sentences))
     print("---------text-rank summarization for document--------")
     summaryArr = textrank_text_summarizer(
-        normalized_sentences, summary_sentences, num_sentences=3, feature_type='tfidf')
+        normalized_sentences, summary_sentences, num_sentences=5, feature_type='tfidf')
     summary = " ".join(summaryArr)
     print(summaryArr)
     return summaryArr
