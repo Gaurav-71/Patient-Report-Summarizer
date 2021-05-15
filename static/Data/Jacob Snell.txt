@@ -1,12 +1,12 @@
-B>Name:</B> Jacob Snell
+Name: Jacob Snell
 
-<B>Date:</B> 9/1/05
+Date: 9/1/05
 
-<B>EXAM:</B>MRI LEFT SHOULDER
+EXAM: MRI LEFT SHOULDER
 
-<B>CLINICAL:</B>This is a 69-year-old male with pain in the shoulder. Evaluate for rotator cuff tear.
+CLINICAL: This is a 69-year-old male with pain in the shoulder. Evaluate for rotator cuff tear.
 
-<B>FINDINGS:</B>
+FINDINGS:
 
 Examination was performed on 9/1/05.
 
@@ -18,7 +18,7 @@ There is subscapularis tendinosis with fraying and partial tearing of the superi
 
 There is tendinosis and superficial tearing of the long biceps tendon within the bicipital groove, and there is high grade (near complete) partial tearing of the intracapsular portion of the tendon. The biceps anchor is intact. There are degenerative changes in the greater tuberosity of the humerus but there is no fracture or subluxation.
 
-There is degeneration of the superior labrum and there is a small nondisplaced tear in the posterior superior labrum at the one to two o’clock position (series #6 images #12-14; series #3 images #8-10; series #9 images #5-8). There is a small sublabral foramen at the eleven o’clock position (series #9 image #6). There is no osseous Bankart lesion.
+There is degeneration of the superior labrum and there is a small nondisplaced tear in the posterior superior labrum at the one to two oï¿½clock position (series #6 images #12-14; series #3 images #8-10; series #9 images #5-8). There is a small sublabral foramen at the eleven oï¿½clock position (series #9 image #6). There is no osseous Bankart lesion.
 
 Normal superior, middle and inferior glenohumeral ligaments.
 
@@ -26,7 +26,7 @@ There is hypertrophic osteoarthropathy of the acromioclavicular joint with narro
 
 Normal coracoacromial, coracohumeral and coracoclavicular ligaments. There is minimal fluid within the glenohumeral joint. There is no atrophy of the deltoid muscle.
 
-<B>IMPRESSION:</B>  There is extensive supraspinatus tendinosis and partial tearing as described. There is no retracted tendon or muscular atrophy, but there may be a small tear along the anterior edge of the tendon at the level of the rotator interval, and this associated partial tearing of the superior most fibers of the subscapularis tendon.  There is also a high-grade partial tear of the long biceps tendon as it courses under the transverse humeral ligament. There is no evidence of a complete tear or retracted tendon. Small nondisplaced posterior superior labral tear. Outlet narrowing from the acromioclavicular joint, which in the appropriate clinical setting is an MRI manifestation of an impinging lesion.
+IMPRESSION:  There is extensive supraspinatus tendinosis and partial tearing as described. There is no retracted tendon or muscular atrophy, but there may be a small tear along the anterior edge of the tendon at the level of the rotator interval, and this associated partial tearing of the superior most fibers of the subscapularis tendon.  There is also a high-grade partial tear of the long biceps tendon as it courses under the transverse humeral ligament. There is no evidence of a complete tear or retracted tendon. Small nondisplaced posterior superior labral tear. Outlet narrowing from the acromioclavicular joint, which in the appropriate clinical setting is an MRI manifestation of an impinging lesion.
 
 
 

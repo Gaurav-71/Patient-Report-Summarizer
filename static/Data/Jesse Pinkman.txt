@@ -1,14 +1,14 @@
-<B>Name:</B> Jesse Pinkman
+Name: Jesse Pinkman
 
-<B>Date:</B> 04/20/2000
+Date: 04/20/2000
 
-<B>EXAM: </B> Three views of the right ankle.
+EXAM:  Three views of the right ankle.
 
-<B>INDICATIONS:  </B>Pain.
+INDICATIONS:  Pain.
 
-<B>FINDINGS: </B> Three views of the right ankle are obtained.  There is no evidence of fractures or dislocations.  No significant degenerative changes or destructive osseous lesions of the ankle are noted.  There is a small plantar calcaneal spur.  There is no significant surrounding soft tissue swelling.
+FINDINGS:  Three views of the right ankle are obtained.  There is no evidence of fractures or dislocations.  No significant degenerative changes or destructive osseous lesions of the ankle are noted.  There is a small plantar calcaneal spur.  There is no significant surrounding soft tissue swelling.
 
-<B>IMPRESSION:  </B>Negative right ankle.
+IMPRESSION:  Negative right ankle.
 
 
 

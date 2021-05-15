@@ -17,6 +17,7 @@ class Patient:
 
 files = []
 for patient in dates.datesDict:
+    
     files.append(Patient(patient, dates.datesDict[patient]))
 
 
