@@ -4,11 +4,9 @@ from sys import path
 import numpy as np
 import re
 import networkx
-from gensim.summarization import summarize, keywords
 from nltk.corpus import wordnet as wn
 from pattern3.en import tag
 import unicodedata
-from nltk.stem import WordNetLemmatizer
 import string
 import nltk
 from scipy.sparse.linalg import svds
@@ -141,41 +139,24 @@ CONTRACTION_MAP = {
 }
 
 
-def build_feature_matrix(documents, feature_type='frequency'):
-    feature_type = feature_type.lower().strip()
-    if feature_type == 'binary':
-        vectorizer = CountVectorizer(binary=True, min_df=1, ngram_range=(1, 1))
-    elif feature_type == 'frequency':
-        vectorizer = CountVectorizer(
-            binary=False, min_df=1, ngram_range=(1, 1))
-    elif feature_type == 'tfidf':
-        vectorizer = TfidfVectorizer(min_df=1, ngram_range=(1, 1))
-    else:
-        raise Exception(
-            "Wrong feature type entered. Possible values: 'binary', 'frequency', 'tfidf'")
+def build_feature_matrix(documents):
+    vectorizer = TfidfVectorizer(min_df=1, ngram_range=(1, 1))
     feature_matrix = vectorizer.fit_transform(documents).astype(float)
+    print("--------------------------FFFF", feature_matrix)
     return vectorizer, feature_matrix
 
 
-def low_rank_svd(matrix, singular_count=2):
-    u, s, vt = svds(matrix, k=singular_count)
-    return u, s, vt
-
-
 stopword_list = nltk.corpus.stopwords.words('english')
-wnl = WordNetLemmatizer()
+
 
 # tokenize the report into tokens
-
-
 def tokenize_text(text):
     tokens = nltk.word_tokenize(text)
     tokens = [token.strip() for token in tokens]
     return tokens
 
+
 # Match the shortforms used in the report by doctors and replace them with the correct words
-
-
 def expand_contractions(text, contraction_mapping):
     contractions_pattern = re.compile('({})'.format(
         '|'.join(contraction_mapping.keys())), flags=re.IGNORECASE | re.DOTALL)
@@ -188,40 +169,10 @@ def expand_contractions(text, contraction_mapping):
             else contraction_mapping.get(match.lower())
         expanded_contraction = first_char+expanded_contraction[1:]
         return expanded_contraction
+
     expanded_text = contractions_pattern.sub(expand_match, text)
     expanded_text = re.sub("'", "", expanded_text)
     return expanded_text
-
-# Annotate text tokens with POS tags
-
-
-def pos_tag_text(text):
-    def penn_to_wn_tags(pos_tag):
-        if pos_tag.startswith('J'):
-            return wn.ADJ
-        elif pos_tag.startswith('V'):
-            return wn.VERB
-        elif pos_tag.startswith('N'):
-            return wn.NOUN
-        elif pos_tag.startswith('R'):
-            return wn.ADV
-        else:
-            return None
-    tagged_text = tag(text)
-    tagged_lower_text = [(word.lower(), penn_to_wn_tags(pos_tag))
-                         for word, pos_tag in tagged_text]
-    return tagged_lower_text
-
-# lemmatize text based on POS tags
-
-
-def lemmatize_text(text):
-
-    pos_tagged_text = pos_tag_text(text)
-    lemmatized_tokens = [wnl.lemmatize(
-        word, pos_tag) if pos_tag else word for word, pos_tag in pos_tagged_text]
-    lemmatized_text = ' '.join(lemmatized_tokens)
-    return lemmatized_text
 
 
 # to eliminate special caracters from report
@@ -234,40 +185,30 @@ def remove_special_characters(text):
     filtered_text = ' '.join(filtered_tokens)
     return filtered_text
 
+
 # to eliminate stop words which do not provide any useful info
-
-
 def remove_stopwords(text):
     tokens = tokenize_text(text)
     filtered_tokens = [token for token in tokens if token not in stopword_list]
     filtered_text = ' '.join(filtered_tokens)
     return filtered_text
 
+
 # to remove any html related syntax
-
-
 def unescape_html(parser, text):
     return parser.unescape(text)
 
+
 # normalization of text
-
-
-def normalize_corpus(corpus, lemmatize=True, tokenize=False):
+def normalize_corpus(corpus):
     normalized_corpus = []
     for text in corpus:
         text = html.unescape(text)
         text = expand_contractions(text, CONTRACTION_MAP)
-        if lemmatize:
-            text = lemmatize_text(text)
-        else:
-            text = text.lower()
+        text = text.lower()
         text = remove_special_characters(text)
         text = remove_stopwords(text)
-        if tokenize:
-            text = tokenize_text(text)
-            normalized_corpus.append(text)
-        else:
-            normalized_corpus.append(text)
+        normalized_corpus.append(text)
     return normalized_corpus
 
 
@@ -286,28 +227,8 @@ def parse_document(document):
     return sentences
 
 
-def text_summarization_gensim(text, summary_ratio=0.5):
-    summary = summarize(text, split=True, ratio=summary_ratio)
-    for sentence in summary:
-        print(sentence)
-
-
-def lsa_text_summarizer(documents, sentences, num_sentences=2, num_topics=2, feature_type='frequency', sv_threshold=0.5):
-    vec, dt_matrix = build_feature_matrix(documents, feature_type)
-    td_matrix = dt_matrix.transpose()
-    td_matrix = td_matrix.multiply(td_matrix > 0)
-    u, s, vt = low_rank_svd(td_matrix, singular_count=num_topics)
-    min_sigma_value = max(s) * sv_threshold
-    s[s < min_sigma_value] = 0
-    salience_scores = np.sqrt(np.dot(np.square(s), np.square(vt)))
-    top_sentence_indices = salience_scores.argsort()[-num_sentences:][::-1]
-    top_sentence_indices.sort()
-    for index in top_sentence_indices:
-        print(sentences[index])
-
-
-def textrank_text_summarizer(documents, sentences, num_sentences=2, feature_type='frequency'):
-    vec, dt_matrix = build_feature_matrix(documents, feature_type='tfidf')
+def textrank_text_summarizer(documents, sentences, num_sentences=2):
+    vec, dt_matrix = build_feature_matrix(documents)
     similarity_matrix = (dt_matrix * dt_matrix.T)
     similarity_graph = networkx.from_scipy_sparse_matrix(similarity_matrix)
     scores = networkx.pagerank(similarity_graph)
@@ -326,13 +247,12 @@ def summarisefile(filename):
     path = "./static/Data/"+filename + ".txt"
     i = open(path)
     my_text = i.read()
-    print(my_text)
     summary_sentences = parse_document(my_text)
-    normalized_sentences = normalize_corpus(summary_sentences, lemmatize=False)
+    normalized_sentences = normalize_corpus(summary_sentences)
     print("Total Sentences:", len(normalized_sentences))
     print("---------text-rank summarization for document--------")
     summaryArr = textrank_text_summarizer(
-        normalized_sentences, summary_sentences, num_sentences=5, feature_type='tfidf')
+        normalized_sentences, summary_sentences, num_sentences=5)
     summary = " ".join(summaryArr)
     print(summaryArr)
     return summaryArr
