@@ -14,8 +14,9 @@
   </div>
   <div class="line"></div>
 </div>
-<div class="team-page container">
-  <p>
+<article class="team-page container">
+  <h4>Introduction</h4>
+  <p style="margin-top: 1rem">
     Doctors have to spend a lot of time looking at old records to understand a
     patients health history which results in them not being able to pay more
     attention to treatment. they can use our model to search through a
@@ -32,5 +33,61 @@
       >https://github.com/Gaurav-71/Patient-Report-Summarizer</a
     >
   </p>
-</div>
+  <h4 style="margin: 1rem 0">Summariser</h4>
+  <p>
+    This is a feature which lets the Doctor view at the summary of a report for
+    a patient from the database instead of reading through the look report. The
+    technique we are using for summarisation is an Extractive way of
+    summarisation done using TextRank Algorithm. The steps used to implement the
+    algorithm can be briefly described as - <br />
+    1. Reading the text from the document and Parsing it to get rid of any
+    unwanted characters. <br />
+    2. Normalising the corpus to get Normalised sentences <br />
+    3. Building a Feature Matrix of the normalised sentences - we are using the
+    method based on “maximum common words” using TF IDF Vectorising <br />
+    4. Creating a Similarity Matrix and then a Similarity graph from the Feature
+    Matrix <br />
+    5. Ranking the Sentences using PageRank Algorithm from the Similarity
+    Matrix. <br />
+    6. Taking out the most important (highly ranked) sentences from the document
+    and creating the summary.
+  </p>
+  <h4 style="margin: 1rem 0">Universal Search</h4>
+  <p>
+    Easily search for a Name / Symptom / Disease / Sentence or a certain Query.
+    <br />
+    This is a feature that names the doctor to search through the document based
+    on a string which can be anything like a name, a symptom, disease, sentence
+    or any other query. We are using Vector Space Model of ranking documents to
+    implement the same.
+  </p>
+  <h4 style="margin: 1rem 0">View reports by date</h4>
+  <p>
+    We have a Date of Creation associated to each document saved in the
+    database. The user/doctor can search for a Document/Report created between
+    two dates or after a particular date or before a particular date as per his
+    convenience.
+  </p>
+  <h4 style="margin: 1rem 0">Comprehensive Report View</h4>
+  <p>
+    If the doctor decides that he needs to go through the complete report of a
+    patient, that is facilitated as well through our application.
+  </p>
+  <h4 style="margin: 1rem 0">All in one solution</h4>
+  <p>
+    This is the most important and practical feature of the application where
+    the user can search for a medical report created between (after/before) two
+    (one) dates based on a query and view the complete report or the summary of
+    it.
+  </p>
+  <p style="visibility: hidden">
+    This is the most important and practical feature of the application where
+    the user can search for a medical report created between (after/before) two
+    (one) dates based on a query and view the complete report or the summary of
+    it. This is the most important and practical feature of the application
+    where the user can search for a medical report created between
+    (after/before) two (one) dates based on a query and view the complete report
+    or the summary of it.
+  </p>
+</article>
 {% endblock%}

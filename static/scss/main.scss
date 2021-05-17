@@ -158,6 +158,7 @@ body {
 
 .title {
   padding: 2rem 4rem 2.5rem;
+  margin-top: 6rem;
   color: #1497a8;
   .title-wrapper {
     display: flex;
@@ -249,4 +250,8 @@ body {
   .reset {
     background: orange;
   }
+}
+
+h4 {
+  color: #1497a8;
 }

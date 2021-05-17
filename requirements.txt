@@ -7,7 +7,6 @@ MarkupSafe==2.0.0
 pycodestyle==2.7.0
 toml==0.10.2
 Werkzeug==2.0.0
-gensim==3.8.3
 networkx
 scipy
 numpy

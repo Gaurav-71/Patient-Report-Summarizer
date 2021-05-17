@@ -48,6 +48,7 @@ body {
 
 .title {
   padding: 2rem 4rem 2.5rem;
+  margin-top: 6rem;
   color: #1497a8;
 }
 
@@ -176,5 +177,9 @@ body {
 
 .search-form .reset {
   background: orange;
+}
+
+h4 {
+  color: #1497a8;
 }
 /*# sourceMappingURL=main.css.map */
